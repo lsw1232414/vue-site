@@ -2,47 +2,42 @@
     <div style="padding:20px;">
         <h1>과제방</h1>
 
-        <!-- 날짜 버튼 -->
-        <div style="margin-bottom:20px;">
-            <button v-for="item in assignments" :key="item.date" @click="selectedDate = item.date" :style="{
-                margin: '5px',
-                padding: '8px 12px',
-                backgroundColor: selectedDate === item.date ? '#42b983' : '#ccc',
-                color: selectedDate === item.date ? 'white' : 'black',
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer'
-            }">
-                {{ item.date }}
-            </button>
-        </div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+            <template v-for="(item, index) in assignments" :key="item.date">
+                <!-- 버튼 -->
+                <button @click="toggleComponent(index)" :style="{
+                    padding: '8px 12px',
+                    backgroundColor: selectedIndex === index ? '#42b983' : '#ccc',
+                    color: selectedIndex === index ? 'white' : 'black',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                }">
+                    {{ item.name }}
+                </button>
 
-        <!-- 선택된 과제 컴포넌트 렌더링 -->
-        <component v-if="currentComponent" :is="currentComponent" />
-        <div v-else>
-            <p>날짜를 선택해주세요.</p>
+                <!-- 클릭된 버튼 바로 아래에 컴포넌트 렌더링 -->
+                <component v-if="selectedIndex === index" :is="item.component" />
+            </template>
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-
-// 날짜별 컴포넌트 import
+import { ref } from 'vue'
 import day1_0822 from './day1_0822.vue'
 import day2_0825 from './day2_0825.vue'
-// 필요하면 다른 과제도 import 가능
 
 const assignments = [
-    { date: '2025-08-22', component: day1_0822 },
-    { date: '2025-08-25', component: day2_0825 },
-    // { date: '2025-08-24', component: Assignment0824 }, ...
+    { date: '2025-08-22', component: day1_0822, name: 'Day1-08/22' },
+    { date: '2025-08-25', component: day2_0825, name: 'Day2-08/25' },
 ]
 
-const selectedDate = ref(null)
+const selectedIndex = ref(null)
 
-const currentComponent = computed(() => {
-    const found = assignments.find(a => a.date === selectedDate.value)
-    return found ? found.component : null
-})
+function toggleComponent(index) {
+    // 같은 버튼 클릭 시 닫기
+    selectedIndex.value = selectedIndex.value === index ? null : index
+}
 </script>
