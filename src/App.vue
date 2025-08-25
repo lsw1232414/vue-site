@@ -1,29 +1,20 @@
 <template>
-  <AssignmentRoom />
+  <div id="app">
+    <!-- 과제방 컴포넌트 렌더링 -->
+    <AssignmentPage />
+  </div>
 </template>
 
 <script setup>
-import AssignmentRoom from "./components/AssignmentRoom.vue"
+import AssignmentPage from './components/AssignmentPage.vue'
 </script>
 
 <style>
-html,
-body,
-#app {
+/* 전역 스타일 필요하면 여기에 작성 */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f5f5;
   margin: 0;
   padding: 0;
-  width: 100%;
-  /* 중요: #app가 화면 전체 높이를 차지 */
-  box-sizing: border-box;
-  overflow-x: hidden;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-body {
-  background-color: #1e1e2f;
-  /* 안전하게 기본 배경 */
-  font-family: 'Segoe UI', sans-serif;
 }
 </style>
