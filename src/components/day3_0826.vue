@@ -116,7 +116,7 @@ const selectedFruit = ref(null)
 .fruit-list>li {
     list-style: none;
     font-weight: bold;
-    color: #388e3c;
+    color: black;
 }
 
 .clear {
