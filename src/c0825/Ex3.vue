@@ -8,7 +8,7 @@ const visible = ref(true);
     <div>
         <h2>Ex3 - v-show</h2>
         <button @click="visible = !visible">토글</button>
-        <p v-show="visible">이 문장은 v-show로 제어됨 </p>
+        <p v-show="visible">이 문장은 v-show로 제어되어서 보이는 중입니다 </p>
     </div>
 </template>
 

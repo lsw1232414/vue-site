@@ -1,6 +1,6 @@
 <template>
     <div style="padding:20px;">
-        <h1>과제방</h1>
+        <h1>LSW's Vue Project</h1>
 
         <div style="display:flex; flex-direction:column; gap:5px;">
             <template v-for="(item, index) in assignments" :key="item.date">
@@ -28,10 +28,12 @@
 import { ref } from 'vue'
 import day1_0822 from './day1_0822.vue'
 import day2_0825 from './day2_0825.vue'
+import Day3_0826 from './day3_0826.vue'
 
 const assignments = [
     { date: '2025-08-22', component: day1_0822, name: 'Day1-08/22' },
     { date: '2025-08-25', component: day2_0825, name: 'Day2-08/25' },
+    { date: '2025-08-26', component: Day3_0826, name: 'Day3-08/26' },
 ]
 
 const selectedIndex = ref(null)

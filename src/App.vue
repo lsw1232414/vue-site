@@ -13,7 +13,7 @@ import AssignmentPage from './components/AssignmentPage.vue'
 /* 전역 스타일 필요하면 여기에 작성 */
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #1e1e2f;
   margin: 0;
   padding: 0;
 }

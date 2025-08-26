@@ -12,30 +12,37 @@ const pages = { Ex1, Ex2, Ex3, Ex4 }
 
 // 현재 보여줄 컴포넌트 상태
 const activeComp = ref("Ex1")
+const compBgColor = ref('black')
 </script>
 
 <template>
-  <div>
-    <button @click="activeComp = 'Ex1'">Bind 바인드</button>
-    <button @click="activeComp = 'Ex2'">if_이프</button>
-    <button @click="activeComp = 'Ex3'">show_쇼우</button>
-    <button @click="activeComp = 'Ex4'">for_포</button>
-  </div>
+  <div class="day2bg">
+    <div>
+      <button @click="activeComp = 'Ex1';">Bind 바인드</button>
+      <button @click="activeComp = 'Ex2';">if_이프</button>
+      <button @click="activeComp = 'Ex3';">show_쇼우</button>
+      <button @click="activeComp = 'Ex4';">for_포</button>
+    </div>
 
-  <div id="comp_view">
-    <!-- 동적 컴포넌트 표시 -->
-    <KeepAlive>
-      <component :is="pages[activeComp]" />
-    </KeepAlive>
+    <div id="comp_view" :style="{ backgroundColor: compBgColor }">
+      <KeepAlive>
+        <component :is="pages[activeComp]" />
+      </KeepAlive>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.day2bg {
+  background-color: black;
+}
+
 button {
   margin: 5px;
   padding: 10px 15px;
   border: none;
   border-radius: 6px;
+  color: black;
   background-color: #f0f0f0;
   cursor: pointer;
   transition: background 0.2s;
