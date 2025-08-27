@@ -34,7 +34,7 @@ const compBgColor = ref('black')
 
 <style scoped>
 .day2bg {
-  background-color: black;
+  background-color: gray;
 }
 
 button {

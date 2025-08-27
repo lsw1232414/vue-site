@@ -14,7 +14,7 @@
 
 <style scoped>
 .ex1bg {
-    background-color: black;
+    background-color: gray;
 }
 
 p {
